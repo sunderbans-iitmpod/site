@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+  
+<div class="container">
+  {% for event in events %}
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">
+          <i class="fa fa-calendar"></i>
+          {{event.title}}
+        </h2>
+        <p class="text-secondary">
+          {{event.datetime.strftime('%d %B, %Y ⋅ %H:%M')}}
+          {% if event.datetimeend %}
+          &dash;
+          {{event.datetimeend.strftime('%d %B, %Y ⋅ %H:%M')}}
+          {% endif %}
+        </p>
+      </div>
+      {% if event.thumb %}
+        <a href="{{event.link}}" target="_blank">
+          <img class="card-img-top" src="{{event.thumb}}" alt="thumbnail">
+        </a>
+      {% else %} 
+        {% if event.yt != "https://" %}
+          <a target="_blank" href="{{event.yt}}">
+            <img class="card-img-top" src="{{ "https://img.youtube.com/vi/" + event.yt[event.yt.rindex("/")+1:] + "/maxresdefault.jpg"}}" alt="thumbnail">
+          </a>
+        {% endif %}
+      {% endif %}
+      <div class="card-body">
+        <div class="card-text">
+          {{event.desc|safe}}
+        </div>
+        {% if event.link != "https://"  %}
+          <a href="{{event.link}}" class="btn b-brown t-yellow" target="_blank" style="margin-top: 12px;">
+            <i class="fa fa-link"></i> Link
+          </a>
+        {% endif %}
+        {% if event.yt != "https://" %}
+        <a href="{{event.yt}}" class="btn b-brown t-yellow" target="_blank" style="margin-top: 12px;">
+          <i class="fa fa-youtube-play"></i> Watch
+        </a>
+        {% endif %}
+      </div>
+      <div class="card-footer">
+          Organizers: {{event.org}}
+      </div>
+      <div class="card-footer">
+          Contact: {{event.contact|safe}}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock content %}

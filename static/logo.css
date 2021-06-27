@@ -1,0 +1,32 @@
+.clock{
+  font-size: x-large;
+  margin: 48px 0;
+}
+
+.clock .v {
+  border: 1px solid black;
+  padding: 16px 8px;
+  border-radius: .25rem;
+}
+
+.clock .t {
+  color: #781f19;
+}
+
+.share{
+  font-size: xx-large;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+/* colors */
+.blue{ color: blue; }
+.green{ color: green; }
+
+.card-img-top {
+  aspect-ratio: 1 / 1;
+}
+
+.card-footer{
+  line-height: 36px;
+}

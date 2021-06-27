@@ -1,0 +1,56 @@
+html{
+  height: 100vh;
+}
+.body{
+  min-height: calc( 100vh - 70px - 60px); 
+  /* 
+  100vh means 100% - 70px for header navbar - 60px for footer 
+  */
+}
+.navbar{
+  min-height: 70px;
+}
+
+.social a{
+  font-size: x-large;
+}
+
+.b-brown{ background-color:#781f19; }
+
+.t-yellow a, .t-yellow, .t-yellow-no-hover, .nav-link span
+{ color: #d6a64f; }
+
+.t-brown a, .t-brown{ 
+  color: #781f19; 
+}
+
+.t-yellow a:hover, .t-yellow:hover, .nav-link span:hover
+{ 
+  color: white; 
+}
+
+.t-brown a:hover, .t-brown:hover{ color: black; }
+
+.nav-link span{
+  font-size: large;
+}
+
+.card {
+  margin: 16px auto;
+  max-width: 33rem;
+}
+
+.text-act { 
+  border-bottom: 3px solid #d6a64f;
+}
+
+strong { 
+  font-weight: bold;
+}
+
+.footer{
+  width: 100%;
+  min-height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
