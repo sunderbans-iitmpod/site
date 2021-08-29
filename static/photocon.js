@@ -10,7 +10,7 @@ sect = document.querySelector('#sect')
 
 function settime(){
   timenow = new Date()
-  timethen = new Date('2021-07-01 23:59')
+  timethen = new Date('2021-08-25 23:59')
   ms = timethen - timenow
   if(ms > 0){
     sec = (ms/1000);

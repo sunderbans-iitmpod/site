@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='digart.css') }}">
+{% endblock style %}
+{% block content %}
+<div class = "container lead fs-4">
+  <h1 class="display-4 mt-4 mb-3">
+      <i class="fa fa-connectdevelop t-yellow-no-hover"></i>DIG-CAVE
+  </h1>
+  <hr class="solid">
+  <img src="https://i.imgur.com/qznnJ5Y.jpg" alt="banner" width="100%">
+  <p class="my-3">
+    DIG-CAVE is a digital art competition organized by Sundarbans House.
+  </p>
+  <p class="my-3">
+    Your subject can be anything but the final submission must be submitted in form of a picture or a video(and accompanying thumbnail) showcasing your art. 
+  </p>
+  <p class="my-3">
+    Topic: <em>Cave Themed Digital Art</em>
+  </p>
+  <p class="my-3">
+    Submission format: <em>A picture or a video(with thumbnail)</em>
+  </p>
+  <p class="my-3">
+    Submission Starts: <em>27<sup>th</sup> August(started)
+  </em></p>
+  <p class="my-3">
+    <span class="text-danger">Submission Ends: <em>31<sup>st</sup> August</em></span>
+  </p>
+  
+  <div class="clock">
+    <span class="dayv" id="dayv"></span>
+    <span class="dayt" id="dayt">D</span>
+    <span class="hourv"id="hourv"></span>
+    <span class="hourt"id="hourt">H</span>
+    <span class="minv" id="minv"></span>
+    <span class="mint" id="mint">M</span>
+    <span class="secv" id="secv"></span>
+    <span class="sect" id="sect">S</span>
+    <span class="over" id="over">Deadline Over</span>
+  </div>
+
+<p class="my-3">
+  <!-- <a href="#vote" class="btn b-brown t-yellow">
+  <i class="fa fa-plus"></i>Vote</a> -->
+  <a href="https://forms.gle/2avhvjL2tpMRwinG7" target="_blank" class="btn b-brown t-yellow my-3">
+    <i class="fa fa-cloud-upload"></i> Upload Submission
+    </a>
+  </p>
+  <p class="my-3">
+    <strong class="fs-4 me-1 my-3 text-act">Share this</strong>
+    <a target="_blank" class="share green fa fa-whatsapp" href="whatsapp://send?text={{ sharetext }}">
+    </a>
+    <a target="_blank" class="share blue fa fa-telegram" href="tg://msg_url?url={{ sharetext }}">
+    </a>
+    <a target="_blank" class="share blue fa fa-facebook" href="https://facebook.com/sharer/sharer.php/?u={{ sharelink }}&amp;quote={{ sharetext }}">
+    </a>
+  </p>
+  
+</div>
+<!-- <div class="container">
+  <h2 class="display-6 mt-4">Winners</h2>
+  <hr class="solid">
+  <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+    <div class="col">
+    <div class="card" id="winner">
+      <a href="https://i.imgur.com/92EoqOg.jpg" target="_blank">
+        <img class="card-img-top" src="https://i.imgur.com/92EoqOg.jpg" alt="thumbnail">
+      </a>
+      <div class="card-body">
+        <p class="my-auto fs-5">
+          <i>Finny Varghese</i>
+        </p>
+      </div>
+      <div class="card-footer my-0 py-0">
+        <p class="my-auto text-muted">
+          Winner
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card" id="winner">
+      <a href="https://i.imgur.com/Jd3geOB.jpg" target="_blank">
+        <img class="card-img-top" src="https://i.imgur.com/Jd3geOB.jpg" alt="thumbnail">
+      </a>
+      <div class="card-body">
+        <p class="my-auto fs-5">
+          <i>Kundi Sathvik Naidu</i>
+        </p>
+      </div>
+      <div class="card-footer my-0 py-0">
+        <p class="my-auto text-muted">
+          Runner Up
+        </p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="container">
+  <h2 class="display-6 mt-4">Submissions</h2>
+  <hr class="solid">
+  <div class="row row-c/ols-1 row-col/s-md-3 g-4">
+  {% for photo in photos %}
+    <div class="col">
+    <div class="card" id="sub{{photo.id}}">
+      <a href="{{photo.ilink}}" target="_blank">
+        <img class="card-img-top" src="{{photo.ilink}}" alt="thumbnail">
+      </a>
+      <div class="card-body">
+        <p class="my-1">
+          {% if photo.tvote %}
+          <span class="fs-5 gold">
+            <i class="fa fa-heart"></i><b> {{photo.tvote}}</b>
+          </span>
+            {% if photo.votes - photo.tvote %}
+            (+{{ photo.votes - photo.tvote}} external)
+            {% endif %}
+          {% else %}
+          <span class="fs-5" >
+            <i class="fa fa-heart-o"></i>
+          </span>
+          {% endif %}
+        </p>
+        <p class="my-auto fs-5">
+          <i>{{photo.author}}</i>
+        </p>
+      </div>
+      <div class="card-footer my-0 py-0">
+        <p class="my-auto text-muted">
+          Submission Number: {{photo.id}}
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+  {% if not photo %}
+  <br>
+  <p class = "lead">No submissions yet :'-( ...</p>
+  {% endif %}
+</div> -->
+
+<!-- 
+<div class="container">
+  <h2 class="display-6 mt-4" id="vote">Cast Your Vote Here</h2>
+  <hr class="solid">
+  <div class="form text-center">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd9gwHLdCTl8cI5kqxTw1zn9mfTjGn4EQs3xWRHgHeSBOKelw/viewform?embedded=true" width="100%" style="min-height: 600px"  frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+</div> -->
+
+{% endblock content %}
+
+{% block script %}
+<script src="{{url_for('static', filename='digart.js')}}"></script>
+{% endblock script %}

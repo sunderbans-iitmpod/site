@@ -1,0 +1,53 @@
+.digart{
+  color: #202020;
+  font-family: monospace;
+  letter-spacing: 6px;
+  font-weight: 700;
+  text-align: center;
+}
+.pic{
+  display: grid;
+  place-items: center;
+}
+.announce{
+  aspect-ratio: 1 / 1;
+  width: clamp(300px, 50%, 600px);
+}
+.share{
+  font-size: xx-large;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+/* colors */
+.blue{ color: blue; }
+.green{ color: green; }
+.gold{ color: goldenrod; }
+
+
+.card-img-top {
+  aspect-ratio: 1 / 1;
+}
+
+.form {
+  margin: auto 5%;
+  width: auto;
+}
+
+.card-footer{
+  line-height: 36px;
+}
+
+.clock{
+  font-size: x-large;
+  margin: 40px 0;
+}
+
+.dayv, .hourv, .minv, .secv {
+    border: 1px solid black;
+    padding: 16px 8px;
+    border-radius: 5px;
+}
+.dayt, .hourt, .mint, .sect {
+  color: var(--bg);
+}

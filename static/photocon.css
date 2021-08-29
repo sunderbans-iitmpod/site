@@ -1,3 +1,9 @@
+.enigma{
+  color: #0047AB;
+  font-family: monospace;
+  letter-spacing: 6px;
+  font-weight: 700;
+}
 .pic{
   display: grid;
   place-items: center;
@@ -22,6 +28,25 @@
   aspect-ratio: 1 / 1;
 }
 
+.form {
+  margin: auto 5%;
+  width: auto;
+}
+
 .card-footer{
   line-height: 36px;
+}
+
+.clock{
+  font-size: x-large;
+  margin: 40px auto;
+}
+
+.dayv, .hourv, .minv, .secv {
+    border: 1px solid black;
+    padding: 16px 8px;
+    border-radius: 5px;
+}
+.dayt, .hourt, .mint, .sect {
+  color: var(--bg);
 }

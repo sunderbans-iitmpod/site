@@ -21,8 +21,9 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark sticky-top b-brown">
       <div class="container-fluid">
-        <a class="navbar-brand mb-0 h1" style="color: #d6a64f;" href="/">
-          <img class="me-2" src="{{url_for('static', filename='favicon.png')}}" alt="" width="40" height="40">Sunderbans
+        <a class="navbar-brand mb-0 h1" href="/">
+          <img class="me-2" src="{{url_for('static', filename='favicon.png')}}" alt="" width="50" height="50">
+          
         </a>
         <button
           class="navbar-toggler"
@@ -34,7 +35,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="navbar-nav me-auto">
             <a class="nav-link" href="/events/"><span>Events</span></a>
-            <a class="nav-link" href="/logo/"><span>Logo&nbsp;Contest</span></a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>Contests</span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/logo/">Logo Contest</a></li>
+                <li><a class="dropdown-item" href="/photocon/">Photography Contest</a></li>
+                <li><a class="dropdown-item" href="/digart/">Digital Art Contest</a></li>
+              </ul>
+            </li>
             <a class="nav-link" href="/about/"><span>About</span></a>
           </div>
           <div class="d-flex t-yellow social">

@@ -4,7 +4,7 @@ views = Blueprint('views', __name__)
 
 @views.route("/")
 def index():
-  return redirect("logo")
+  return redirect("digart")
 	
 @views.route('/login/')
 def login():
@@ -20,6 +20,20 @@ def logo():
   sharelink="https://site.sunderbanspod.repl.co/logo/"
   sharetext=f"Check out the Sunderbans Logo Competition @ {sharelink}"
   return render_template("logo.html", logos=logos(), title="Logo Contest", sharetext=sharetext, sharelink=sharelink)
+    
+@views.route('/photocon/')
+def photocon():
+  from fetch import photocon
+  sharelink="https://site.sunderbanspod.repl.co/photocon/"
+  sharetext=f"Check out the Sunderbans Photography Competition @ {sharelink}"
+  return render_template("photocon.html", photos=photocon(), title="Photography Contest", sharetext=sharetext, sharelink=sharelink)
+    
+@views.route('/digart/')
+def digart():
+  from fetch import digart
+  sharelink="https://site.sunderbanspod.repl.co/digart/"
+  sharetext=f"Check out the Sunderbans Digital Art Competition @ {sharelink}"
+  return render_template("digart.html", photos=digart(), title="Digital Art Contest", sharetext=sharetext, sharelink=sharelink)
     
 @views.route('/events/')
 def events():

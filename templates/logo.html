@@ -9,31 +9,25 @@
   </h1>
   <hr class="solid">
   <p class="my-3">
-    The competition to select a logo to represent Sunderbans House is underway!!! Upload your entry and your contribution has a chance to forever be associated with our House. <strong>All</strong> participants will receive <strong>certificates of recognition </strong>from the Sunderbans House Council. Further credentials await the winner! Submissions are open to <strong>all</strong> houses.
+    Woohoo, Make way for the superbly talented winners of Sundarbans Logo Competition🎉🎉🎊🎊
+<br>
+    First place goes to <strong>Ayushi Choudhary</strong> who made the tiger roar in the classic combination of Black and Golden colour.
+<br>
+    And then comes our runner up <strong>Princi Mittal</strong> whose tiger gazed up on us from the forest of Sundarbans.
+<br>
+    As informed the winners have been selected on the basis of votes they got from Sundarbans family.
+    Ayushi got the highest 28.1% and Princi at the second place got 18.8% votes.
+<br>
+    <strong>Certificates will be rolled out soon</strong>. 
+    Special certificates will be given to the Winner and Runner up. Rest will get the participation certificate.
+<br>
+    <strong class="text-danger">Congratulations to all the participants and thank you for participating.</strong>
   </p>
-  <p class="my-3">
-    Submissions start: <strong>24th June</strong>
-    <br>
-    Last date:  <strong>1st July</strong>
-  </p>
-  <div class="clock">
-    <span class="v" id="dayv"></span>
-    <span class="t" id="dayt">D</span>
-    <span class="v"id="hourv"></span>
-    <span class="t"id="hourt">H</span>
-    <span class="v" id="minv"></span>
-    <span class="t" id="mint">M</span>
-    <span class="v" id="secv"></span>
-    <span class="t" id="sect">S</span>
-    <span class="r" id="over">Submission time is up!</span>
-  </div>
 
-  <p class="my-3">
-  The final logo will be chosen by <strong>voting</strong> among all members. Make sure to cast your vote in the appropriate form below.
-  </p>
-  <p class="my-3">
-    Non members of Sunderbans House are free to caste their vote to make their preferences known. However please note that these votes will <strong class="text-danger">not be taken into consideration</strong> when declaring the winner.
-  </p>
+  <div class="pic">
+    <img src="https://i.imgur.com/Rl5wLd2.jpg" alt="winners" class="announce mt-5 mb-5">
+  </div>
+  
   <p>
     <strong class="fs-4 me-1 text-act">Share this</strong>
     <a target="_blank" class="share green fa fa-whatsapp" href="whatsapp://send?text={{ sharetext }}">
@@ -43,12 +37,43 @@
     <a target="_blank" class="share blue fa fa-facebook" href="https://facebook.com/sharer/sharer.php/?u={{ sharelink }}&amp;quote={{ sharetext }}">
     </a>
   </p>
-  <a href="https://forms.gle/P2ounPvj5nvG8L696" class="btn my-3 b-brown t-yellow" target="_blank" >
-    <i class="fa fa-cloud-upload"></i> Upload Submission
-  </a>
-  <a href="#voteForm" class="btn my-3 b-brown t-yellow" role="button">
-    <i class="fa fa-heart"></i>&nbspVote Here
-  </a>
+  
+</div>
+<div class="container">
+  <h2 class="display-6 mt-4">Winner</h2>
+  <hr class="solid">
+  <div class="card" id="subwin">
+    <a href="https://i.imgur.com/pZoBN58.png" target="_blank">
+      <img class="card-img-top" src="https://i.imgur.com/pZoBN58.png" alt="thumbnail">
+    </a>
+    <div class="card-body">
+      <p class="my-auto fs-5">
+        <i>Ayushi Choudhary</i>
+      </p>
+    </div>
+    <div class="card-footer my-0 py-0">
+      <p class="my-auto text-muted">
+        28.1% votes
+      </p>
+    </div>
+  </div>
+  <h2 class="display-6 mt-4">Runner Up</h2>
+  <hr class="solid">
+  <div class="card" id="subrun">
+    <a href="https://i.imgur.com/tnuIMhZ.png" target="_blank">
+      <img class="card-img-top" src="https://i.imgur.com/tnuIMhZ.png" alt="thumbnail">
+    </a>
+    <div class="card-body">
+      <p class="my-auto fs-5">
+        <i>Princi Mittal</i>
+      </p>
+    </div>
+    <div class="card-footer my-0 py-0">
+      <p class="my-auto text-muted">
+        18.8% votes
+      </p>
+    </div>
+  </div>
 </div>
 <div class="container">
   <h2 class="display-6 mt-4">Submissions</h2>
@@ -61,11 +86,19 @@
         <img class="card-img-top" src="{{logo.ilink}}" alt="thumbnail">
       </a>
       <div class="card-body">
-        <p class="my-1 text-secondary">
-          <i class="fa fa-heart"></i> <b> {{logo.tvote}}</b> 
-            {% if logo.tvote - logo.votes %}
+        <p class="my-1">
+          {% if logo.tvote %}
+          <span class="fs-5 gold">
+            <i class="fa fa-heart"></i><b> {{logo.tvote}}</b>
+          </span>
+            {% if logo.votes - logo.tvote %}
             (+{{ logo.votes - logo.tvote}} external)
             {% endif %}
+          {% else %}
+          <span class="fs-5" >
+            <i class="fa fa-heart-o"></i>
+          </span>
+          {% endif %}
         </p>
         <p class="my-auto fs-5">
           <i>{{logo.author}}</i>
@@ -85,16 +118,8 @@
   <p class = "lead">No submissions yet :'-( ...</p>
   {% endif %}
 </div>
-<div class="container" id="voteForm">
-  <br><br>
-  <h2 class="display-6 mt-4">Vote Here</h2>
-  <hr class="solid">
-  <p>If the form doesn't load click <a class="t-brown" target="_blank" href="https://forms.gle/31fCs1Mge3kLWyXd6">here</a>.
-  </p>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSezG0MiyvsHIJxOtiriN3P_0J_Ch-U6I6_2iaFzltlwBWciDg/viewform?embedded=true" width="100%" height = "640" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-</div>
+
 {% endblock content %}
 
 {% block script %}
-<script src="{{ url_for('static', filename='logo.js') }}"></script>
 {% endblock script %}

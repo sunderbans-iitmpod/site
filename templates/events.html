@@ -51,5 +51,11 @@
       </div>
     </div>
   {% endfor %}
+  {% if not events %}
+  <div class="text-center">
+    <h2 class="fs-3 pt-3">We are baking fresh events for you!</h2>
+    <h3 class="fs-5 text-muted">Check back soon for new events</h3>
+  </div>
+  {% endif %}
 </div>
 {% endblock content %}

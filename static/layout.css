@@ -1,5 +1,12 @@
+:root{
+
+  --bg: black;
+  --fg: #FABE5E;
+
+}
 html{
   height: 100vh;
+  scroll-behavior: smooth;
 }
 .body{
   min-height: calc( 100vh - 70px - 60px); 
@@ -15,13 +22,13 @@ html{
   font-size: x-large;
 }
 
-.b-brown{ background-color:#781f19; }
+.b-brown{ background-color:var(--bg); }
 
 .t-yellow a, .t-yellow, .t-yellow-no-hover, .nav-link span
-{ color: #d6a64f; }
+{ color: var(--fg); }
 
 .t-brown a, .t-brown{ 
-  color: #781f19; 
+  color: var(--bg); 
 }
 
 .t-yellow a:hover, .t-yellow:hover, .nav-link span:hover
@@ -41,7 +48,7 @@ html{
 }
 
 .text-act { 
-  border-bottom: 3px solid #d6a64f;
+  border-bottom: 3px solid var(--fg);
 }
 
 strong { 
