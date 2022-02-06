@@ -5,14 +5,13 @@ from dataparse import embedemail
 from datetime import datetime
 from dateutil import parser
 from pytz import timezone
-from models import Event, Logo, Photo
+from models import *
 
 gc = sh = worksheet = dataset = None
 
 def init(i):
   global gc, sh, worksheet, dataset
   gc = gspread.service_account_from_dict(json.loads(os.environ['all-secrets']))
-
   link = 'https://docs.google.com/spreadsheets/d/1Dt7G2Lbe6Ao-8JCQ8xhndtoiNM_vGB9kNHs7SImD7mk/'
   sh = gc.open_by_url(link)
   worksheet = sh.get_worksheet(i)
@@ -21,26 +20,30 @@ def init(i):
 def events():
   init(0)
   eventlist = []
+
   tzinfo = timezone('Asia/Kolkata')
   now = datetime.now(tzinfo)
+
   for data in dataset:
-    if data['link'][:4] != 'http':
+    if data['link'] and data['link'][:4] != 'http':
       data['link'] = 'https://' + data['link']
-    if data['yt'][:4] != 'http':
-      data['yt'] = 'https://' + data['yt']
-    if data['datetime']:
-      # data['datetime'] = datetime.strptime(legaldate(data['datetime']), '%d%m%Y %H%M').replace(tzinfo=tzinfo)
-      data['datetime'] = parser.parse(data['datetime'] + '+5:30')
-    else:
-      continue
-    if data['datetimeend']:
-      # data['datetimeend'] = datetime.strptime(legaldate(data['datetimeend']), '%d%m%Y %H%M').replace(tzinfo=tzinfo)
-      data['datetimeend'] = parser.parse(data['datetimeend'] + '+5:30' )
-    data['desc'].replace("<a", '<a target = "_blank" ')
+    if data['date']:
+      data['date'] = parser.parse(data['date'])
+      data['date'] = data['date'].strftime('%d %B %Y ')
+    if data['time']:
+      data['time'] = parser.parse(data['time'])
+      data['time'] = data['time'].strftime('⋅ %H:%M')
+    if data['dateend']:
+      data['dateend'] = parser.parse(data['dateend'])
+      data['dateend'] = data['dateend'].strftime('%d %B %Y ')
+    if data['timeend']:
+      data['timeend'] = parser.parse(data['timeend'])
+      data['timeend'] = data['timeend'].strftime('⋅ %H:%M')
+    data['desc'] = data['desc'].replace("<a", '<a target = "_blank" ')
     data['contact'] = embedemail(data['hosts'], data['email'])
-    if data['datetime'] > now or data['datetimeend'] and data['datetimeend'] > now:
-      eventlist.append(Event(data))
-  eventlist.sort(key = lambda x : x.datetime)
+    #if data['datetime'] > now or data['datetimeend'] and data['datetimeend'] > now:
+    eventlist.append(Event(data))
+  #eventlist.sort(key = lambda x : x.date)
   return eventlist
 
 
@@ -54,9 +57,7 @@ def logos():
   logolist.sort(key = lambda x : x.id)
   return logolist
 
-
-
-def photocon():
+def photos():
   init(2)
   photolist = []
   for data in dataset:
@@ -66,13 +67,12 @@ def photocon():
   photolist.sort(key = lambda x : x.id)
   return photolist
 
-
-def digart():
-  init(3)
+def captures():
+  init(5)
   photolist = []
   for data in dataset:
     if data['ilink'][:4] != 'http':
       data['ilink'] = 'https://' + data['ilink']    
-    photolist.append(Photo(data))
+    photolist.append(Obj(data))
   photolist.sort(key = lambda x : x.id)
   return photolist

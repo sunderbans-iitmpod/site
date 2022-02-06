@@ -1,35 +1,33 @@
 {% extends "layout.html" %}
 {% block style %}
-<link rel="stylesheet" href="{{ url_for('static', filename='photocon.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='capture.css') }}">
 {% endblock style %}
 {% block content %}
 <div class = "container lead fs-4">
   <h1 class="display-4 mt-4 mb-3">
-      <i class="fa fa-image t-yellow-no-hover"></i> Sunderbans Photography Competition!
+      <i class="fa fa-camera t-yellow-no-hover"></i> Capture
   </h1>
   <hr class="solid">
-  <h2 class="display-6 mt-4 mb-3 text-center enigma">Enigma!
-  </h1>
   <p class="my-3">
-    Say Cheese! Sunderbans House is proud to showcase the lens action of our budding photographers.
+    Photography, the idea of colours floating across a sheet of paper forming either familiar shapes or new creations is appealing to the eye. Though in reality, it is much more than just the beads of colours. Photography can capture someone’s heart and soul. Even the simplest photo tells a specific story to people. It should not be overlooked.  Photograph has the power to influence people.
   </p>
   <p class="my-3">
-    Upload your entries to use your photographic talents to make our house stand out. 
+    We, at Sunderbans bring to you 'CAPTURE', the search for that perfect shot. This is a competition to test your photography skills. The theme for the competition is 'Wide Angled Photography'.
   </p>
   <p class="my-3">
-    <strong>Topic:</strong> <em>Reflection</em>
+    All you Canon heads, what are you waiting for? Go and click that perfect shot! 
   </p>
   <p class="my-3">
     <strong>Winners will be mentioned on our social media!</strong>
   </p>
   <p class="my-3">
-    <strong class="text-danger">Submission Deadline: 23<sup>rd</sup> August</strong> (over)
+    <strong class="text-danger">Submission Deadline: 25<sup>th</sup> October</strong> (over)
   </p>
   <p class="my-3">
-    <strong class="text-danger">Voting Deadline: 25<sup>th</sup> August</strong> (over)
+    <strong class="text-danger">Voting Deadline: 4<sup>th</sup> November</strong>
   </p>
   
-  <div class="clock text-center">
+  <div class="clock">
     <span class="dayv" id="dayv"></span>
     <span class="dayt" id="dayt">D</span>
     <span class="hourv"id="hourv"></span>
@@ -38,7 +36,7 @@
     <span class="mint" id="mint">M</span>
     <span class="secv" id="secv"></span>
     <span class="sect" id="sect">S</span>
-    <span class="over" id="over">Winners are declared!</span>
+    <span class="over" id="over"></span>
   </div>
 
 
@@ -46,7 +44,7 @@
     <a href="#vote" class="btn b-brown t-yellow">
       <i class="fa fa-plus"></i>
       Vote</a>
-      <a href="https://forms.gle/1Ho4dHe9fXdU4mMK6" target="_blank" class="btn b-brown t-yellow">
+      <a href="https://forms.gle/JybzgVoeqmiuDjvBA" target="_blank" class="btn b-brown t-yellow">
       <i class="fa fa-cloud-upload"></i>
       Upload Submission</a>
   </p>
@@ -63,50 +61,10 @@
   
 </div>
 <div class="container">
-  <h2 class="display-6 mt-4">Winners</h2>
-  <hr class="solid">
-  <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
-    <div class="col">
-    <div class="card" id="winner">
-      <a href="https://i.imgur.com/92EoqOg.jpg" target="_blank">
-        <img class="card-img-top" src="https://i.imgur.com/92EoqOg.jpg" alt="thumbnail">
-      </a>
-      <div class="card-body">
-        <p class="my-auto fs-5">
-          <i>Finny Varghese</i>
-        </p>
-      </div>
-      <div class="card-footer my-0 py-0">
-        <p class="my-auto text-muted">
-          Winner
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card" id="winner">
-      <a href="https://i.imgur.com/Jd3geOB.jpg" target="_blank">
-        <img class="card-img-top" src="https://i.imgur.com/Jd3geOB.jpg" alt="thumbnail">
-      </a>
-      <div class="card-body">
-        <p class="my-auto fs-5">
-          <i>Kundi Sathvik Naidu</i>
-        </p>
-      </div>
-      <div class="card-footer my-0 py-0">
-        <p class="my-auto text-muted">
-          Runner Up
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
   <h2 class="display-6 mt-4">Submissions</h2>
   <hr class="solid">
   <div class="row row-cols-1 row-cols-md-3 g-4">
-  {% for photo in photos %}
+  {% for photo in captures %}
     <div class="col">
     <div class="card" id="sub{{photo.id}}">
       <a href="{{photo.ilink}}" target="_blank">
@@ -114,7 +72,7 @@
       </a>
       <div class="card-body">
         <p class="my-1">
-          {% if photo.tvote %}
+          <!-- {% if photo.tvote %}
           <span class="fs-5 gold">
             <i class="fa fa-heart"></i><b> {{photo.tvote}}</b>
           </span>
@@ -125,7 +83,7 @@
           <span class="fs-5" >
             <i class="fa fa-heart-o"></i>
           </span>
-          {% endif %}
+          {% endif %} -->
         </p>
         <p class="my-auto fs-5">
           <i>{{photo.author}}</i>
@@ -140,22 +98,23 @@
   </div>
   {% endfor %}
   </div>
-  {% if not photo %}
+  {% if not capture %}
   <br>
   <p class = "lead">No submissions yet :'-( ...</p>
   {% endif %}
 </div>
 
 <div class="container">
-  <h2 class="display-6 mt-4" id="vote">Cast Your Vote Here</h2>
+  <h2 class="display-6 mt-4" id="vote">Vote Here</h2>
+  If the form below doesn't load please click <a href="https://forms.gle/9key8QNYhhUHpQBQ7" target = "_blank">here</a>
   <hr class="solid">
   <div class="form text-center">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd9gwHLdCTl8cI5kqxTw1zn9mfTjGn4EQs3xWRHgHeSBOKelw/viewform?embedded=true" width="100%" style="min-height: 600px"  frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe src = "https://forms.gle/9key8QNYhhUHpQBQ7"" width="100%" style="min-height: 600px"  frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
 </div>
 
 {% endblock content %}
 
 {% block script %}
-<script src="{{url_for('static', filename='photocon.js')}}"></script>
+<script src="{{url_for('static', filename='capture.js')}}"></script>
 {% endblock script %}

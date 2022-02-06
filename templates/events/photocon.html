@@ -1,31 +1,30 @@
 {% extends "layout.html" %}
 {% block style %}
-<link rel="stylesheet" href="{{ url_for('static', filename='digart.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='photocon.css') }}">
 {% endblock style %}
 {% block content %}
 <div class = "container lead fs-4">
   <h1 class="display-4 mt-4 mb-3">
-      <i class="fa fa-connectdevelop t-yellow-no-hover"></i>DIG-CAVE
+      <i class="fa fa-camera t-yellow-no-hover"></i> Enigma
   </h1>
   <hr class="solid">
-  <img src="https://i.imgur.com/qznnJ5Y.jpg" alt="banner" width="100%">
   <p class="my-3">
-    DIG-CAVE is a digital art competition organized by Sundarbans House.
+    Say Cheese! Sunderbans House is proud to showcase the lens action of our budding photographers.
   </p>
   <p class="my-3">
-    Your subject can be anything but the final submission must be submitted in form of a picture or a video(and accompanying thumbnail) showcasing your art. 
+    Upload your entries to use your photographic talents to make our house stand out. 
   </p>
   <p class="my-3">
-    Topic: <em>Cave Themed Digital Art</em>
+    <strong>Topic:</strong> <em>Reflection</em>
   </p>
   <p class="my-3">
-    Submission format: <em>A picture or a video(with thumbnail)</em>
+    <strong>Winners will be mentioned on our social media!</strong>
   </p>
   <p class="my-3">
-    Submission Starts: <em>27<sup>th</sup> August(started)
-  </em></p>
+    <strong class="text-danger">Submission Deadline: 23<sup>rd</sup> August</strong> (over)
+  </p>
   <p class="my-3">
-    <span class="text-danger">Submission Ends: <em>31<sup>st</sup> August</em></span>
+    <strong class="text-danger">Voting Deadline: 25<sup>th</sup> August</strong> (over)
   </p>
   
   <div class="clock">
@@ -37,18 +36,21 @@
     <span class="mint" id="mint">M</span>
     <span class="secv" id="secv"></span>
     <span class="sect" id="sect">S</span>
-    <span class="over" id="over">Deadline Over</span>
+    <span class="over" id="over">Winners are declared!</span>
   </div>
 
-<p class="my-3">
-  <!-- <a href="#vote" class="btn b-brown t-yellow">
-  <i class="fa fa-plus"></i>Vote</a> -->
-  <a href="https://forms.gle/2avhvjL2tpMRwinG7" target="_blank" class="btn b-brown t-yellow my-3">
-    <i class="fa fa-cloud-upload"></i> Upload Submission
-    </a>
-  </p>
+
   <p class="my-3">
-    <strong class="fs-4 me-1 my-3 text-act">Share this</strong>
+    <a href="#vote" class="btn b-brown t-yellow">
+      <i class="fa fa-plus"></i>
+      Vote</a>
+      <a href="https://forms.gle/1Ho4dHe9fXdU4mMK6" target="_blank" class="btn b-brown t-yellow">
+      <i class="fa fa-cloud-upload"></i>
+      Upload Submission</a>
+  </p>
+
+  <p>
+    <strong class="fs-4 me-1 text-act">Share this</strong>
     <a target="_blank" class="share green fa fa-whatsapp" href="whatsapp://send?text={{ sharetext }}">
     </a>
     <a target="_blank" class="share blue fa fa-telegram" href="tg://msg_url?url={{ sharetext }}">
@@ -58,7 +60,7 @@
   </p>
   
 </div>
-<!-- <div class="container">
+<div class="container">
   <h2 class="display-6 mt-4">Winners</h2>
   <hr class="solid">
   <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
@@ -97,12 +99,11 @@
       </div>
     </div>
   </div>
-</div> -->
-
-<!-- <div class="container">
+</div>
+<div class="container">
   <h2 class="display-6 mt-4">Submissions</h2>
   <hr class="solid">
-  <div class="row row-c/ols-1 row-col/s-md-3 g-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
   {% for photo in photos %}
     <div class="col">
     <div class="card" id="sub{{photo.id}}">
@@ -141,19 +142,18 @@
   <br>
   <p class = "lead">No submissions yet :'-( ...</p>
   {% endif %}
-</div> -->
+</div>
 
-<!-- 
 <div class="container">
   <h2 class="display-6 mt-4" id="vote">Cast Your Vote Here</h2>
   <hr class="solid">
   <div class="form text-center">
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd9gwHLdCTl8cI5kqxTw1zn9mfTjGn4EQs3xWRHgHeSBOKelw/viewform?embedded=true" width="100%" style="min-height: 600px"  frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
-</div> -->
+</div>
 
 {% endblock content %}
 
 {% block script %}
-<script src="{{url_for('static', filename='digart.js')}}"></script>
+<script src="{{url_for('static', filename='photocon.js')}}"></script>
 {% endblock script %}

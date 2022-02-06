@@ -1,0 +1,23 @@
+# data['datetime'] = datetime.strptime(legaldate(data['datetime']), '%d%m%Y %H%M').replace(tzinfo=tzinfo)
+
+# data['datetimeend'] = datetime.strptime(legaldate(data['datetimeend']), '%d%m%Y %H%M').replace(tzinfo=tzinfo)
+
+if data['datetime']:
+      data['datetime'] = parser.parse(data['datetime'] + '+5:30')
+if data['datetimeend']:
+      data['datetimeend'] = parser.parse(data['datetimeend'] + '+5:30')
+
+{{event.date.strftime('%d %B %Y ')}}
+          {{event.time.strftime('⋅ %H:%M')}}
+          {% if event.dateend %}
+          &dash;
+          {{event.dateend.strftime('%d %B %Y ')}}
+          {{event.timeend.strftime('⋅ %H:%M')}}
+          {% endif %}
+
+{% if event.yt != "https://" %}
+          <a target="_blank" href="{{event.yt}}">
+            <!--<img class="card-img-top" src="{# {{ "https://img.youtube.com/vi/" + event.yt[event.yt.rindex("/")+1:] + "/maxresdefault.jpg"}} #}" alt="thumbnail">
+            -->
+          </a>
+        {% endif %}

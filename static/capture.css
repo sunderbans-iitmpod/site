@@ -1,9 +1,8 @@
-.digart{
-  color: #202020;
+.enigma{
+  color: #0047AB;
   font-family: monospace;
   letter-spacing: 6px;
   font-weight: 700;
-  text-align: center;
 }
 .pic{
   display: grid;
@@ -40,7 +39,7 @@
 
 .clock{
   font-size: x-large;
-  margin: 40px 0;
+  margin: 40px auto;
 }
 
 .dayv, .hourv, .minv, .secv {

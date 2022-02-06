@@ -87,18 +87,7 @@
       </a>
       <div class="card-body">
         <p class="my-1">
-          {% if logo.tvote %}
-          <span class="fs-5 gold">
-            <i class="fa fa-heart"></i><b> {{logo.tvote}}</b>
-          </span>
-            {% if logo.votes - logo.tvote %}
-            (+{{ logo.votes - logo.tvote}} external)
-            {% endif %}
-          {% else %}
-          <span class="fs-5" >
-            <i class="fa fa-heart-o"></i>
-          </span>
-          {% endif %}
+          
         </p>
         <p class="my-auto fs-5">
           <i>{{logo.author}}</i>

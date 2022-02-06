@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if msg %}
+<div id="liveAlertPlaceholder"></div>
+<script>
+  var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+  var alertTrigger = document.getElementById('liveAlertBtn')
+
+  function drawAlert(message, type) {
+    var wrapper = document.createElement('div')
+    var ico = (type == 'success') ? 'check' : 'warning';
+    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible show fade" role="alert">' + '<i class="fa fa-' + ico + '"></i> ' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+    alertPlaceholder.append(wrapper)
+  }
+  drawAlert("{{msg}}", "{{typ}}")   
+</script>
+{% endif %}
+<div class="container mt-2">
+  <form method="POST">
+    <h3>Update Events Page</h3>
+    <div class="mb-3">
+      <label for="title" class="form-label">Event Title</label>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description (HTML)</label>
+      <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="link" class="form-label">Link</label>
+      <input type="text" class="form-control" id="link" name="link" placeholder="meet.google.com">
+    </div>
+    <div class="mb-3">
+      <label for="org" class="form-label">Organising Body</label>
+      <input type="text" class="form-control" id="org" name="org" placeholder="Sundarbans Activity Club">
+    </div>
+    <div class="mb-3">
+      <label for="host" class="form-label">Host</label>
+      <input type="text" class="form-control" id="host" name="host" placeholder="John Doe">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Host's Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="john.doe@mail.com">
+    </div>
+    <div class="row g-3">
+      <div class="col-auto mb-3">
+        <label for="pwd" class="visually-hidden">Password</label>
+        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">
+      </div>
+      <div class="col-auto mb-3">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script src="{{url_for('static', filename='bei.js')}}"></script>
+{% endblock script %}
